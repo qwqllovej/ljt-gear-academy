@@ -1,6 +1,5 @@
 #![no_std]
-#![allow(clippy::all)] // 允许所有 clippy 警告
-#![allow(warnings)] // 允许所有 Rust 警告
+#![allow(warnings)]
 
 use gstd::{collections::HashMap, exec, msg, prelude::*, ActorId};
 use wordle_io::*;
