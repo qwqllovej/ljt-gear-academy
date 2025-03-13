@@ -5,6 +5,7 @@ on:
     branches: [main]
   push:
     branches: [main]
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
@@ -22,8 +23,16 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
-      - name: Check and test
+      - name: Wordle Check and test
         run: |
+          cd wordle
           cargo fmt --all --check
-          cargo clippy --release --all-targets -- -D warnings -A unused-imports
-          cargo t -r
+          cargo clippy --all-targets -- -D warnings -A unused-imports
+          cargo t
+
+      - name: Session Check and test
+        run: |
+          cd session
+          cargo fmt --all --check
+          cargo clippy --all-targets -- -D warnings -A unused-imports
+          cargo t
