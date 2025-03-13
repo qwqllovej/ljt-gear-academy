@@ -23,6 +23,9 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
+      - name: Install rust-src
+        run: rustup component add rust-src --toolchain stable
+
       - name: Wordle Check and test
         run: |
           cd wordle
