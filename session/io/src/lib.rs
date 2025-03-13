@@ -1,12 +1,12 @@
 #![no_std]
-use gmeta::{InOut, Metadata};
+use gmeta::{In, InOut, Metadata};
 use gstd::{collections::HashMap, prelude::*, ActorId, MessageId};
 
 #[derive(Debug, Default, Clone, Encode, Decode, TypeInfo)]
 pub struct WordleMetadata;
 
 impl Metadata for WordleMetadata {
-    type Init = ();
+    type Init = In<ActorId>;
     type Handle = InOut<Action, SessionStatus>;
     type Others = ();
     type Reply = ();
